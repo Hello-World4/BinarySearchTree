@@ -176,7 +176,7 @@ public class Tree {
                 swap(tmpNode,curr);
                curr.left = deletePrivate(curr.left,tmpNode.data);
                */
-                
+
 
 
             }
@@ -186,6 +186,28 @@ public class Tree {
     }
     public void delete(int x){
         deletePrivate(this.root,x);
+    }
+
+    //Inverse tree
+    private Node invertTreeR(Node curr) {
+        if (curr == null) {
+            return null;
+        }
+        /*
+        Node right = invertTree(curr.right);
+        Node left = invertTree(curr.left);
+        curr.left = right;
+        curr.right = left;
+         */
+        Node tmp = curr.left;
+        curr.left = curr.right;
+        curr.right = tmp;
+        invertTreeR(curr.left);
+        invertTreeR(curr.right);
+        return curr;
+    }
+    public void invertTree(){
+        invertTreeR(this.root);
     }
 
 
