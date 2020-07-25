@@ -22,14 +22,17 @@ public class Main {
        a.add(70);
        a.add(100);
 
-         a.bfs();
+        a.delete(40);
+         //a.bfs();
         //a.preoder();
        //a.inorder();
         //a.postorder();
-       // System.out.println(a.find(50));
-        System.out.println(a.findRecursive(90));
+        System.out.println(a.find(40));
+        //System.out.println(a.findRecursive(90));
         //System.out.println(a.max());
-        System.out.println(a.maxRecursive());
+        //System.out.println(a.maxRecursive());
+
+
 
 
 

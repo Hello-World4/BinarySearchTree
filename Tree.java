@@ -142,6 +142,52 @@ public class Tree {
         return maxR(this.root);
     }
 
+    //Delete
+
+    private void swap(Node a, Node b){
+        Node tmp = a;
+        a = b;
+        b = tmp;
+    }
+
+    private Node deletePrivate(Node curr, int x){
+        if(curr == null){
+            return null;
+        }
+        //First step find your element
+        if(x < curr.data){
+            curr.left = deletePrivate(curr.left,x);
+        }
+        if(x > curr.data){
+            curr.right = deletePrivate(curr.right,x);
+        }
+        //I find it
+        else{
+            if(curr.left == null && curr.right == null){
+                curr = null;
+            }
+            else if(curr.left == null || curr.right == null){
+                curr = curr.left == null ? curr.right : curr.left;
+            }
+            else{
+                //bug not fix
+                /*
+                Node tmpNode = curr.left.findMax();
+                swap(tmpNode,curr);
+               curr.left = deletePrivate(curr.left,tmpNode.data);
+               */
+                
+
+
+            }
+
+        }
+        return curr;
+    }
+    public void delete(int x){
+        deletePrivate(this.root,x);
+    }
+
 
 
 }

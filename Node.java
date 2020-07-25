@@ -7,4 +7,11 @@ public class Node {
         this.left = null;
         this.right = null;
     }
+
+    public Node findMax(){
+        if(right != null){
+            return right.findMax();
+        }
+        return this;
+    }
 }
